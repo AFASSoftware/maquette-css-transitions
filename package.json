@@ -1,0 +1,85 @@
+{
+  "name": "maquette-css-transitions",
+  "version": "0.9.0",
+  "description": "CSS transitions for maquette",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "tsa clean && npm -s run dist",
+    "assist": "tsa assist",
+    "release": "tsa release",
+    "fix": "tsa fix",
+    "clean": "tsa clean",
+    "dist": "tsc -p ./src/tsconfig.json && rollup -c && uglifyjs ./dist/maquette-css-transitions.umd.js -c unsafe=true -m -o ./dist/maquette-css-transitions.umd.min.js",
+    "ci": "tsa ci",
+    "test": "tsa ci",
+    "precommit": "tsa pre-commit",
+    "prepush": "npm run dist && tsa pre-push",
+    "postcheckout": "tsa post-checkout || exit 0",
+    "postmerge": "tsa post-merge || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFASSoftware/maquette-css-transitions.git"
+  },
+  "keywords": [
+    "maquette",
+    "css",
+    "transitions",
+    "animated"
+  ],
+  "author": "AFAS Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AFASSoftware/maquette-css-transitions/issues"
+  },
+  "homepage": "https://github.com/AFASSoftware/maquette-css-transitions#readme",
+  "devDependencies": {
+    "typescript-assistant": "0.23.2"
+  },
+  "dependencies": {
+    "rollup": "0.50.0",
+    "uglify-js": "3.1.5"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "typings/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "html",
+      "text-summary"
+    ],
+    "cache": true,
+    "temp-directory": "./build/nyc/cache",
+    "all": true,
+    "check-coverage": true,
+    "report-dir": "./build/coverage",
+    "es-module": false,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "watermarks": {
+      "lines": [
+        75,
+        100
+      ],
+      "functions": [
+        75,
+        100
+      ],
+      "branches": [
+        75,
+        100
+      ],
+      "statements": [
+        75,
+        100
+      ]
+    }
+  }
+}
