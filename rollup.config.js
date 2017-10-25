@@ -10,7 +10,7 @@ export default [
       file: pkg.browser,
       format: 'umd'
     },
-    moduleName: 'maquette',
+    name: 'maquetteCssTransitions',
     plugins: []
   },
   // CommonJS build for nodeJS
