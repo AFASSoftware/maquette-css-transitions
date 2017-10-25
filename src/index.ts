@@ -19,7 +19,7 @@ let init = (testElement: Element) => {
   }
 };
 
-export let createEnterCssTransition = (cssClassBase: string): (element: Element) => void => {
+export let createEnterCssTransition = (cssClassBase: string, activeClass = `${cssClassBase}-active`): (element: Element) => void => {
   return (element) => {
     init(element);
     let finished = false;
@@ -29,19 +29,19 @@ export let createEnterCssTransition = (cssClassBase: string): (element: Element)
         element.removeEventListener(browserSpecificTransitionEndEventName, transitionEnd);
         element.removeEventListener(browserSpecificAnimationEndEventName, transitionEnd);
         element.classList.remove(cssClassBase);
-        element.classList.remove(`${cssClassBase}-active`);
+        element.classList.remove(activeClass);
       }
     };
     element.classList.add(cssClassBase);
     element.addEventListener(browserSpecificTransitionEndEventName, transitionEnd);
     element.addEventListener(browserSpecificAnimationEndEventName, transitionEnd);
     requestAnimationFrame(() => {
-      element.classList.add(`${cssClassBase}-active`);
+      element.classList.add(activeClass);
     });
   };
 };
 
-export let createExitCssTransition = (cssClassBase: string): (element: Element, removeElement: () => void) => void => {
+export let createExitCssTransition = (cssClassBase: string, activeClass = `${cssClassBase}-active`): (element: Element, removeElement: () => void) => void => {
   return (element, removeElement) => {
     init(element);
     let finished = false;
@@ -57,7 +57,7 @@ export let createExitCssTransition = (cssClassBase: string): (element: Element, 
     element.addEventListener(browserSpecificTransitionEndEventName, transitionEnd);
     element.addEventListener(browserSpecificAnimationEndEventName, transitionEnd);
     requestAnimationFrame(() => {
-      element.classList.add(`${cssClassBase}-active`);
+      element.classList.add(activeClass);
     });
   };
 };

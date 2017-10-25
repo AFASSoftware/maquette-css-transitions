@@ -75,6 +75,33 @@ describe('cssTransitions', () => {
       expect(element.classList.remove).calledWith(animationClass);
       expect(element.classList.remove).calledWith(animationClass + activeModifier);
     });
+
+    it('can handle css modules', () => {
+      let element = createFakeElement();
+      let animationClass = 'abcde';
+      let animationClassActive = 'edcba';
+
+      let animationFunction = createEnterCssTransition(animationClass, animationClassActive);
+      animationFunction(element as any);
+
+      expect(element.classList.add).to.be.calledOnce;
+      expect(element.classList.add.lastCall.args[0]).to.equal(animationClass);
+
+      let transitionEnd = element.addEventListener.getCall(0).args[1];
+
+      let addModifier = globalScope.requestAnimationFrame.lastCall.args[0];
+      element.classList.add.reset();
+      addModifier();
+
+      expect(element.classList.add).to.be.calledOnce;
+      expect(element.classList.add).calledWith(animationClassActive);
+
+      transitionEnd.apply(element);
+
+      expect(element.classList.remove).to.be.calledTwice;
+      expect(element.classList.remove).calledWith(animationClass);
+      expect(element.classList.remove).calledWith(animationClassActive);
+    });
   });
 
   describe('exitCssTransition', () => {
@@ -117,6 +144,26 @@ describe('cssTransitions', () => {
       expect(removeElement).to.have.been.called;
     });
 
+    it('can handle css modules', () => {
+      let element = createFakeElement();
+      let animationClass = 'abcdef';
+      let animationClassActive = 'fedcba';
+      let removeElement = sinon.stub();
+
+      let animationFunction = createExitCssTransition(animationClass, animationClassActive);
+      animationFunction(element as any, removeElement);
+
+      expect(element.classList.add).to.be.calledOnce;
+      expect(element.classList.add.lastCall.args[0]).to.equal(animationClass);
+
+      let addModifier = globalScope.requestAnimationFrame.lastCall.args[0];
+
+      element.classList.add.reset();
+      addModifier();
+
+      expect(element.classList.add).to.be.calledOnce;
+      expect(element.classList.add).calledWith(animationClassActive);
+    });
   });
 
   describe('other browsers', () => {
