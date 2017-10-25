@@ -1,6 +1,6 @@
 {
   "name": "maquette-css-transitions",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "CSS transitions for maquette",
   "module": "./dist/maquette-css-transitions.js",
   "main": "./dist/maquette-css-transitions.cjs.js",
