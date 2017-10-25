@@ -1,6 +1,10 @@
 /* tslint:disable:no-require-imports no-unused-variable no-var-requires */
 
-import chai = require('chai');
+import * as chai from 'chai';
+import * as sinonChai from 'sinon-chai';
+chai.use(sinonChai);
 let expect = chai.expect;
 
-export { expect };
+import * as sinon from 'sinon';
+
+export { expect, sinon };

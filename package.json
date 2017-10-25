@@ -15,6 +15,7 @@
     "dist": "tsc -p ./src/tsconfig.json && rollup -c && uglifyjs ./dist/maquette-css-transitions.umd.js -c unsafe=true -m -o ./dist/maquette-css-transitions.umd.min.js",
     "ci": "tsa ci",
     "test": "tsa ci",
+    "coverage-show": "opn build/coverage/index.html",
     "precommit": "tsa pre-commit",
     "prepush": "npm run dist && tsa pre-push",
     "postcheckout": "tsa post-checkout || exit 0",
@@ -37,10 +38,13 @@
   },
   "homepage": "https://github.com/AFASSoftware/maquette-css-transitions#readme",
   "devDependencies": {
-    "typescript-assistant": "0.23.2"
-  },
-  "dependencies": {
+    "@types/sinon": "2.3.6",
+    "@types/sinon-chai": "2.7.29",
+    "mocha": "4.0.1",
     "rollup": "0.50.0",
+    "sinon": "4.0.1",
+    "sinon-chai": "2.14.0",
+    "typescript-assistant": "0.23.2",
     "uglify-js": "3.1.5"
   },
   "nyc": {
@@ -62,10 +66,10 @@
     "check-coverage": true,
     "report-dir": "./build/coverage",
     "es-module": false,
-    "lines": 0,
-    "statements": 0,
-    "functions": 0,
-    "branches": 0,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
     "watermarks": {
       "lines": [
         75,

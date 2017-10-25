@@ -5,7 +5,7 @@ let determineBrowserSpecificStyleNames = (element: HTMLElement) => {
   if ('WebkitTransition' in element.style) {
     browserSpecificTransitionEndEventName = 'webkitTransitionEnd';
     browserSpecificAnimationEndEventName = 'webkitAnimationEnd';
-  } else if ('transition' in element.style || 'MozTransition' in element.style) {
+  } else if ('transition' in element.style) {
     browserSpecificTransitionEndEventName = 'transitionend';
     browserSpecificAnimationEndEventName = 'animationend';
   } else {
