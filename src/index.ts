@@ -23,7 +23,7 @@ export let createEnterCssTransition = (cssClassBase: string, activeClass = `${cs
   return (element) => {
     init(element);
     let finished = false;
-    let transitionEnd = (evt: TransitionEvent) => {
+    let transitionEnd = (evt: Event) => {
       if (!finished) {
         finished = true;
         element.removeEventListener(browserSpecificTransitionEndEventName, transitionEnd);
@@ -45,7 +45,7 @@ export let createExitCssTransition = (cssClassBase: string, activeClass = `${css
   return (element, removeElement) => {
     init(element);
     let finished = false;
-    let transitionEnd = (evt: TransitionEvent) => {
+    let transitionEnd = (evt: Event) => {
       if (!finished) {
         finished = true;
         element.removeEventListener(browserSpecificTransitionEndEventName, transitionEnd);
