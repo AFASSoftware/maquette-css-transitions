@@ -17,7 +17,6 @@ export default [
   {
     input: 'dist/index.js',
     output: {
-      name: 'maquetteCssTransitions',
       file: pkg.main,
       format: 'cjs'
     }
