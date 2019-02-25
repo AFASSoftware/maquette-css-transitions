@@ -7,16 +7,17 @@ export default [
   {
     input: 'dist/index.js',
     output: {
+      name: 'maquetteCssTransitions',
       file: pkg.browser,
       format: 'umd'
     },
-    name: 'maquetteCssTransitions',
     plugins: []
   },
   // CommonJS build for nodeJS
   {
     input: 'dist/index.js',
     output: {
+      name: 'maquetteCssTransitions',
       file: pkg.main,
       format: 'cjs'
     }
