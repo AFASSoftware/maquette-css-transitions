@@ -2,10 +2,10 @@
   "name": "maquette-css-transitions",
   "version": "1.1.0",
   "description": "CSS transitions for maquette",
-  "module": "./dist/maquette-css-transitions.js",
+  "module": "./dist/index.js",
   "main": "./dist/maquette-css-transitions.cjs.js",
   "browser": "./dist/maquette-css-transitions.umd.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prepublishOnly": "tsa clean && npm -s run dist",
     "assist": "tsa assist",
