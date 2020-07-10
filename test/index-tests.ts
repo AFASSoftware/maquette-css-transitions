@@ -11,9 +11,10 @@ describe('cssTransitions', () => {
     cancelAnimationFrame?: SinonStub;
   }
 
-  let globalScope: Global & RequestAnimationsApi = global;
+  let globalScope: Global & RequestAnimationsApi;
 
   beforeEach(() => {
+    globalScope = (global as Global);
     globalScope.requestAnimationFrame = sinon.stub();
   });
 
