@@ -34,14 +34,14 @@
   },
   "homepage": "https://github.com/AFASSoftware/maquette-css-transitions#readme",
   "devDependencies": {
-    "@types/sinon": "7.5.1",
-    "@types/sinon-chai": "3.2.3",
-    "mocha": "6.2.2",
-    "rollup": "1.27.14",
-    "sinon": "8.0.1",
-    "sinon-chai": "3.4.0",
-    "typescript-assistant": "0.40.12",
-    "uglify-js": "3.7.3"
+    "@types/sinon": "9.0.4",
+    "@types/sinon-chai": "3.2.4",
+    "mocha": "8.0.1",
+    "rollup": "2.21.0",
+    "sinon": "9.0.2",
+    "sinon-chai": "3.5.0",
+    "typescript-assistant": "0.40.21",
+    "uglify-js": "3.10.0"
   },
   "nyc": {
     "include": [
