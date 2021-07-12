@@ -1,15 +1,15 @@
-let browserSpecificTransitionEndEventName: 'webkitTransitionEnd' | 'transitionend';
-let browserSpecificAnimationEndEventName: 'webkitAnimationEnd' | 'animationend';
+let browserSpecificTransitionEndEventName: "webkitTransitionEnd" | "transitionend";
+let browserSpecificAnimationEndEventName: "webkitAnimationEnd" | "animationend";
 
 let determineBrowserSpecificStyleNames = (element: HTMLElement) => {
-  if ('WebkitTransition' in element.style) {
-    browserSpecificTransitionEndEventName = 'webkitTransitionEnd';
-    browserSpecificAnimationEndEventName = 'webkitAnimationEnd';
-  } else if ('transition' in element.style) {
-    browserSpecificTransitionEndEventName = 'transitionend';
-    browserSpecificAnimationEndEventName = 'animationend';
+  if ("WebkitTransition" in element.style) {
+    browserSpecificTransitionEndEventName = "webkitTransitionEnd";
+    browserSpecificAnimationEndEventName = "webkitAnimationEnd";
+  } else if ("transition" in element.style) {
+    browserSpecificTransitionEndEventName = "transitionend";
+    browserSpecificAnimationEndEventName = "animationend";
   } else {
-    throw new Error('Your browser is not supported!');
+    throw new Error("Your browser is not supported!");
   }
 };
 
@@ -19,7 +19,10 @@ let init = (testElement: Element) => {
   }
 };
 
-export let createEnterCssTransition = (cssClassBase: string, activeClass = `${cssClassBase}-active`): (element: Element) => void => {
+export let createEnterCssTransition = (
+  cssClassBase: string,
+  activeClass = `${cssClassBase}-active`
+): ((element: Element) => void) => {
   return (element) => {
     init(element);
     let finished = false;
@@ -41,7 +44,10 @@ export let createEnterCssTransition = (cssClassBase: string, activeClass = `${cs
   };
 };
 
-export let createExitCssTransition = (cssClassBase: string, activeClass = `${cssClassBase}-active`): (element: Element, removeElement: () => void) => void => {
+export let createExitCssTransition = (
+  cssClassBase: string,
+  activeClass = `${cssClassBase}-active`
+): ((element: Element, removeElement: () => void) => void) => {
   return (element, removeElement) => {
     init(element);
     let finished = false;
