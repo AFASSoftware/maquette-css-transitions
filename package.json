@@ -7,6 +7,7 @@
   "browser": "./dist/maquette-css-transitions.umd.js",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "prepare": "husky install",
     "prepublishOnly": "tsa clean && npm -s run dist",
     "assist": "tsa assist",
     "release": "tsa release",
@@ -35,16 +36,16 @@
   },
   "homepage": "https://github.com/AFASSoftware/maquette-css-transitions#readme",
   "devDependencies": {
-    "@types/node": "16.3.1",
-    "@types/sinon": "10.0.2",
+    "@types/node": "16.10.1",
+    "@types/sinon": "10.0.4",
     "@types/sinon-chai": "3.2.5",
-    "@types/sinonjs__fake-timers": "6.0.3",
-    "mocha": "9.0.2",
-    "rollup": "2.53.1",
-    "sinon": "11.1.1",
+    "@types/sinonjs__fake-timers": "6.0.4",
+    "mocha": "9.1.2",
+    "rollup": "2.57.0",
+    "sinon": "11.1.2",
     "sinon-chai": "3.7.0",
-    "typescript-assistant": "^0.51.0",
-    "uglify-js": "3.13.10"
+    "typescript-assistant": "0.53.0",
+    "uglify-js": "3.14.2"
   },
   "nyc": {
     "include": [
@@ -86,14 +87,6 @@
         75,
         100
       ]
-    }
-  },
-  "husky": {
-    "hooks": {
-      "post-checkout": "tsa post-checkout || exit 0",
-      "post-merge": "tsa post-merge || exit 0",
-      "pre-commit": "tsa pre-commit",
-      "pre-push": "npm run dist && tsa pre-push"
     }
   },
   "importSort": {
